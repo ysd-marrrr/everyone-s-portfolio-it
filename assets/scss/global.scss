@@ -1,1 +1,21 @@
 @import url('https://fonts.googleapis.com/css2?family=Abel&family=Comfortaa:wght@300;700&display=swap');
+
+body {
+  color: rgba(0, 0, 0, 0.7);
+  font-size: 0.9rem;
+}
+
+a {
+  color: rgba(0, 0, 0, 0.7);
+  text-decoration: none;
+
+  &:hover {
+    color: rgb(0, 0, 128);
+    text-decoration: underline;
+    
+  }
+}
+
+ul {
+  padding-inline-start: 1rem;
+}
