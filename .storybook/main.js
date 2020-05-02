@@ -9,27 +9,29 @@ module.exports = {
       test: /\.(s*)css$/,
       use: [
         'style-loader',
-          {
-            loader: 'css-loader'
-          },
-          {
-            loader: 'sass-loader',
-            options: {
-              sourceMap: true
-            }
-          },
-          {
-            loader: 'postcss-loader',
-            options: {
-              ident: 'postcss',
-              plugins: [
-                require('tailwindcss'),
-                require('autoprefixer')
-              ],
-            },
-          },
-        ]
-    });
-    return config;
-  },
-};
+        {
+          loader: 'css-loader'
+        },
+        {
+          loader: 'postcss-loader',
+          options: {
+            ident: 'postcss',
+            sourceMap: true,
+            plugins: [
+              require('postcss-import'),
+              require('tailwindcss'),
+              require('autoprefixer')
+            ]
+          }
+        },
+        {
+          loader: 'sass-loader',
+          options: {
+            sourceMap: true
+          }
+        }
+      ]
+    })
+    return config
+  }
+}
