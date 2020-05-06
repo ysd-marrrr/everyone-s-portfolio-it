@@ -73,8 +73,9 @@ export default {
   letter-spacing: 0.25rem;
 }
 
-.portfolio-title {
+.portfolio-content {
   text-align: center;
+  margin: 0.5rem 0 1rem 0;
 }
 
 // タブレット以上の場合は横に複数枚並べる
