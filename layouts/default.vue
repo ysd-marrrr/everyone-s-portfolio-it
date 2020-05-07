@@ -4,6 +4,19 @@
   </div>
 </template>
 
+<script lang="ts">
+import Vue from 'vue'
+
+// nuxt.config.jsで読み込んだTypekitを動作させる
+declare let Typekit: Object
+
+export default Vue.extend({
+  mounted() {
+    Typekit.load({ async: true })
+  }
+})
+</script>
+
 <style>
 html {
   font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI',
