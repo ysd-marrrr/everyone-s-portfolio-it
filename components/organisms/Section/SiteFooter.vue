@@ -1,6 +1,6 @@
 <template>
   <footer>
-    <div class="container flex justify-center">
+    <div class="flex justify-center">
       <div class="site-description">
         「みんなのポートフォリオ」はITエンジニアはどんなふうにポートフォリオを作っているのだろう？を解決するポートフォリオまとめサイトです。
       </div>

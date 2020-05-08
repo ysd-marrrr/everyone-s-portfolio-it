@@ -1,5 +1,5 @@
 <template>
-  <section id="portfolio-list" class="container">
+  <section id="portfolio-list">
     <portfolio-card />
   </section>
 </template>
