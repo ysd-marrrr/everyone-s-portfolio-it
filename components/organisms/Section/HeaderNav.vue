@@ -1,8 +1,8 @@
 <template>
-  <section id="header">
-    <h1>みんなのポートフォリオ！</h1>
-    <nav>
-      <p>
+  <section id="header" class="flex justify-center">
+    <nav class="flex flex-wrap w-3/4 justify-center content-center">
+      <h1 class="md:w-1/2">みんなのポートフォリオ！</h1>
+      <p class="md:w-1/2 text-right">
         {{ portfolioCountProp }}件掲載中 / 最終更新日: {{ lastUpdatedProp }}
       </p>
     </nav>
@@ -27,14 +27,8 @@ export default Vue.extend({
 </script>
 
 <style lang="scss" scoped>
-#header {
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-
-  h1 {
-    font-size: 1.5rem;
-    font-weight: bold;
-  }
+h1 {
+  font-size: 1.5rem;
+  font-weight: bold;
 }
 </style>
