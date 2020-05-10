@@ -19,6 +19,7 @@ export default Vue.extend({
 #portfolio-list {
   padding: 2.5rem 0 10rem 0;
   margin: auto auto;
+  flex: 1;
 }
 
 // タブレット以上の場合は横に複数枚並べる

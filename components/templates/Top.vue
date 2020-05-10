@@ -24,7 +24,11 @@ export default Vue.extend({
 <style lang="scss" scoped>
 .top-wrapper {
   width: 100vw;
+  min-height: 100vh;
+
   background: rgb(242, 224, 187);
   padding: 1rem 0 0 0;
+  display: flex;
+  flex-direction: column;
 }
 </style>
