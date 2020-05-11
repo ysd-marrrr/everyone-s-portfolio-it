@@ -1,5 +1,5 @@
 <template>
-  <section id="portfolio-list">
+  <section id="portfolio-list" class="flex flex-wrap">
     <portfolio-card />
   </section>
 </template>
@@ -19,7 +19,6 @@ export default Vue.extend({
 #portfolio-list {
   padding: 2.5rem 0 10rem 0;
   margin: auto auto;
-  flex: 1;
 }
 
 // タブレット以上の場合は横に複数枚並べる
@@ -30,14 +29,8 @@ export default Vue.extend({
   }
 }
 
-@media screen and (min-width: 900px) and (max-width: 1400px) {
-  #portfolio-list {
-    width: 80%;
-  }
-}
-
-// モバイルの場合は横いっぱいカードを表示する
-@media screen and (max-width: 899px) {
+// 横いっぱいカードを表示する
+@media screen and (max-width: 1400px) {
   #portfolio-list {
     width: 95%;
   }
