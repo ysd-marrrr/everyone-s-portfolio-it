@@ -62,10 +62,20 @@ export default {
 
 <style lang="scss" scoped>
 .portfolio-card {
+  position: relative;
+  top: 0;
+
+  transition: all 0.5s ease;
   border-radius: 5px;
   box-shadow: 0 1rem 30px 0 rgba(0, 0, 0, 0.2);
   padding: 0.5rem;
+  margin: 0.5rem;
+
   background: white;
+
+  &:hover {
+    top: -1rem;
+  }
 }
 
 .portfolio-date {
