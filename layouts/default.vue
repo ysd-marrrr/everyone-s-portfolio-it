@@ -8,7 +8,9 @@
 import Vue from 'vue'
 
 // nuxt.config.jsで読み込んだTypekitを動作させる
-declare let Typekit: Object
+declare module Typekit {
+  export function load(Object): void
+}
 
 export default Vue.extend({
   mounted() {
