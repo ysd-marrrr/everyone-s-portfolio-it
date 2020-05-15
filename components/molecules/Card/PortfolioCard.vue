@@ -69,7 +69,7 @@ export default {
   border-radius: 5px;
   box-shadow: 0 1rem 30px 0 rgba(0, 0, 0, 0.2);
   padding: 0.5rem;
-  margin: 0.5rem;
+  margin: 1rem 1rem 0 0;
 
   background: white;
 

@@ -1,6 +1,16 @@
 <template>
   <section id="portfolio-list" class="flex flex-wrap">
-    <portfolio-card />
+    <portfolio-card
+      v-for="(item, index) in portfolioList"
+      :key="index"
+      :url-prop="item.url"
+      :image-url-prop="item.imageUrl"
+      :skill-list-prop="item.skills"
+    >
+      <template v-slot:title>
+        {{ item.title }}
+      </template>
+    </portfolio-card>
   </section>
 </template>
 
@@ -11,6 +21,19 @@ import PortfolioCard from '@/components/molecules/Card/PortfolioCard.vue'
 export default Vue.extend({
   components: {
     PortfolioCard
+  },
+  props: {
+    portfolioListProp: {
+      type: Array,
+      default() {
+        return []
+      }
+    }
+  },
+  computed: {
+    portfolioList() {
+      return this.portfolioListProp
+    }
   }
 })
 </script>
