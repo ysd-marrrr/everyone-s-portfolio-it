@@ -1,7 +1,7 @@
 <template>
   <div class="top-wrapper">
     <header-nav />
-    <portfolio-card-list />
+    <portfolio-card-list :portfolio-list-prop="portfolioList" />
     <site-footer />
   </div>
 </template>
@@ -17,6 +17,19 @@ export default Vue.extend({
     HeaderNav,
     PortfolioCardList,
     SiteFooter
+  },
+  props: {
+    portfolioListProp: {
+      type: Array,
+      default() {
+        return []
+      }
+    }
+  },
+  computed: {
+    portfolioList() {
+      return this.portfolioListProp
+    }
   }
 })
 </script>
