@@ -27,6 +27,10 @@ export default Vue.extend({
 </script>
 
 <style lang="scss" scoped>
+#header {
+  background: rgb(242, 224, 187);
+}
+
 h1 {
   font-size: 1.5rem;
   font-weight: bold;
