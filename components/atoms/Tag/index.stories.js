@@ -1,7 +1,7 @@
 import Tag from '@/components/atoms/Tag/Tag.vue'
 
 export default {
-  title: 'molecules/Card/PortfolioCard'
+  title: '/atoms/Tag/Tag'
 }
 
 export const tag = () => ({

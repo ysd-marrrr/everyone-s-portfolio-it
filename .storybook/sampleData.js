@@ -3,21 +3,21 @@ export function generateSampleData() {
   const url = 'https://www.y-mix.dev/'
   const imageUrl = ''
   const tagSample = [
-    { text: 'Go' },
-    { text: 'Apache Spark' },
-    { text: 'Twitter API' },
-    { text: 'ShellScript' },
-    { text: 'Flask' },
-    { text: 'jQuery' },
-    { text: 'Bulma' },
-    { text: 'nginx' },
-    { text: 'Jenkins' },
-    { text: 'BigQuery' },
-    { text: 'Ionic' },
-    { text: 'Bootstrap' },
-    { text: 'iOS(Objective-C)' },
-    { text: 'Android(Java)' },
-    { text: 'Unity(JS, C#)' }
+    'Go',
+    'Apache Spark',
+    'Twitter API',
+    'ShellScript',
+    'Flask',
+    'jQuery',
+    'Bulma',
+    'nginx',
+    'Jenkins',
+    'BigQuery',
+    'Ionic',
+    'Bootstrap',
+    'iOS(Objective-C)',
+    'Android(Java)',
+    'Unity(JS, C#)'
   ]
   for (let i = 0; i < 20; i++) {
     samples.push({

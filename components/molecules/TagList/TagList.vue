@@ -1,11 +1,7 @@
 <template>
-  <ul :class="'tags ' + customClassProp">
-    <tag
-      v-for="(item, index) in tagList"
-      :key="index"
-      :custom-class-prop="item.style"
-    >
-      {{ item.text }}
+  <ul class="tags">
+    <tag v-for="(item, index) in tagList" :key="index">
+      {{ item }}
     </tag>
   </ul>
 </template>
@@ -17,28 +13,15 @@ export default {
     Tag
   },
   props: {
-    customClassProp: {
-      type: String,
-      default: ''
-    },
     tagListProp: {
       type: Array,
       default() {
-        return [
-          { text: 'sample 1', style: 'is-info' },
-          { text: 'sample 2', style: 'is-warning' },
-          { text: 'sample 3', style: 'is-danger' }
-        ]
+        return ['sample 1', 'sample 2', 'sample 3']
       }
     }
   },
   computed: {
     tagList() {
-      this.tagListProp.forEach((element) => {
-        if ('style' in element === false) {
-          element.style = ''
-        }
-      })
       return this.tagListProp
     }
   }

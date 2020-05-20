@@ -1,19 +1,8 @@
 <template>
   <li>
-    <span :class="'tag ' + customClassProp"><slot /></span>
+    <span class="tag"><slot /></span>
   </li>
 </template>
-
-<script>
-export default {
-  props: {
-    customClassProp: {
-      type: String,
-      default: ''
-    }
-  }
-}
-</script>
 
 <style lang="scss" scoped>
 li {
