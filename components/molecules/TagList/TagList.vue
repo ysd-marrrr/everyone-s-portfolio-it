@@ -16,7 +16,7 @@ export default {
     tagListProp: {
       type: Array,
       default() {
-        return ['sample 1', 'sample 2', 'sample 3']
+        return []
       }
     }
   },
