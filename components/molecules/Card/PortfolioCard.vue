@@ -64,7 +64,7 @@ export default {
   border-radius: 5px;
   box-shadow: 0 1rem 30px 0 rgba(0, 0, 0, 0.2);
   padding: 0.5rem;
-  margin: 1rem 1rem 0 0;
+  margin: 0.5rem;
 
   background: white;
 
@@ -86,14 +86,14 @@ export default {
 // タブレット以上の場合は横に複数枚並べる
 @media screen and (min-width: 1401px) {
   .portfolio-card {
-    width: calc(25% - 0.75rem);
+    width: calc(25% - 1rem);
     max-width: 15rem;
   }
 }
 
 @media screen and (min-width: 900px) and (max-width: 1400px) {
   .portfolio-card {
-    width: calc(33.3% - 0.75rem);
+    width: calc(33.3% - 1rem);
     max-width: 15rem;
   }
 }
@@ -101,14 +101,14 @@ export default {
 // モバイルの場合は横いっぱいカードを表示する
 @media screen and (min-width: 640px) and (max-width: 899px) {
   .portfolio-card {
-    width: calc(50% - 0.75rem);
+    width: calc(50% - 1rem);
     max-width: 100vw;
   }
 }
 
 @media screen and (max-width: 640px) {
   .portfolio-card {
-    width: calc(100% - 0.75rem);
+    width: calc(100% - 1rem);
     max-width: 100vw;
   }
 }
