@@ -14,6 +14,7 @@ export default {
         content: process.env.npm_package_description || ''
       }
     ],
+    script: [{ src: 'https://use.typekit.net/qxu3zoz.js' }],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
   },
   /*
@@ -23,7 +24,7 @@ export default {
   /*
    ** Global CSS
    */
-  css: [],
+  css: ['@/assets/scss/global.scss'],
   /*
    ** Plugins to load before mounting the App
    */

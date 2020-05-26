@@ -6,20 +6,32 @@ module.exports = {
   webpackFinal: async (config, { configType }) => {
     config.resolve.alias['@'] = path.resolve(__dirname, '../')
     config.module.rules.push({
-      test: /\.scss$/,
+      test: /\.(s*)css$/,
       use: [
         'style-loader',
-          {
-            loader: 'css-loader'
-          },
-          {
-            loader: 'sass-loader',
-            options: {
-              sourceMap: true
-            }
+        {
+          loader: 'css-loader'
+        },
+        {
+          loader: 'postcss-loader',
+          options: {
+            ident: 'postcss',
+            sourceMap: true,
+            plugins: [
+              require('postcss-import'),
+              require('tailwindcss'),
+              require('autoprefixer')
+            ]
           }
-        ]
-    });
-    return config;
-  },
-};
+        },
+        {
+          loader: 'sass-loader',
+          options: {
+            sourceMap: true
+          }
+        }
+      ]
+    })
+    return config
+  }
+}
