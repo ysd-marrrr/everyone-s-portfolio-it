@@ -2,8 +2,14 @@ name: CI Nuxt.js text
 
 on:
   push:
+    paths:
+      - 'frontend/**'
   pull_request:
     branches: [ master ]
+
+defaults:
+  run:
+    working-directory: frontend
 
 jobs:
   build:
