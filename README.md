@@ -2,15 +2,22 @@
 
 > My super-excellent meta-portfolio project
 
+## Frontend
+
  * Nuxt
  * TypeScript
  * Tailwind CSS
  * Jest
 
+## Backend
 
-## Build Setup
+ * soon...
+
+## Build Setup(Frontend)
 
 ```bash
+$ cd frontend
+
 # install dependencies
 $ yarn install
 
@@ -23,6 +30,9 @@ $ yarn start
 
 # generate static project
 $ yarn generate
+
+# Unit test with Jest
+$ yarn test
 ```
 
 For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
