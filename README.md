@@ -30,6 +30,9 @@ $ yarn start
 
 # generate static project
 $ yarn generate
+
+# Unit test with Jest
+$ yarn test
 ```
 
 For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
