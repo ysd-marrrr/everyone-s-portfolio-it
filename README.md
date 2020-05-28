@@ -2,15 +2,22 @@
 
 > My super-excellent meta-portfolio project
 
+## Frontend
+
  * Nuxt
  * TypeScript
  * Tailwind CSS
  * Jest
 
+## Backend
 
-## Build Setup
+ * soon...
+
+## Build Setup(Frontend)
 
 ```bash
+$ cd frontend
+
 # install dependencies
 $ yarn install
 
