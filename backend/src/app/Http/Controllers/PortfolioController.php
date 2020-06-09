@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
 class PortfolioController extends Controller
@@ -13,7 +14,8 @@ class PortfolioController extends Controller
      */
     public function index()
     {
-        //
+        $portfolios = DB::table('portfolios')->paginate(20);
+        return response()->json($portfolios, 200, [], JSON_UNESCAPED_UNICODE);
     }
 
     /**
