@@ -14,4 +14,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::resource('portfolios', 'PortfolioController', ['only' => ['index', 'store', 'show', 'update', 'destroy']]);
+Route::resource('portfolios', 'PortfolioController', ['only' => ['index', 'show']]);
+
+Route::put('portfolios', 'PortfolioController@store')->middleware('auth:api');
