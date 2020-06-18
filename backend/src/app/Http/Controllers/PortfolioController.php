@@ -44,7 +44,14 @@ class PortfolioController extends Controller
      */
     public function show($id)
     {
-        //
+        $portfolio = Portfolio::find($id);
+        if ($portfolio) {
+            return response()->json($portfolio, 200, [], JSON_UNESCAPED_UNICODE);
+        } else {
+            return response()->json([
+                'message' => 'Portfolio not found.',
+            ], 404, [], JSON_UNESCAPED_UNICODE);
+        }
     }
 
     /**
