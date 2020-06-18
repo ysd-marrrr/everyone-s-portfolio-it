@@ -14,8 +14,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::resource('portfolios', 'PortfolioController', ['only' => ['index', 'show']]);
 
+Route::get('portfolios', 'PortfolioController@index');
+Route::get('portfolios/{id}', 'PortfolioController@show');
 Route::post('portfolios', 'PortfolioController@store')->middleware('client');
-Route::put('portfolios', 'PortfolioController@update')->middleware('client');
-Route::delete('portfolios', 'PortfolioController@destroy')->middleware('client');
+Route::put('portfolios/{id}', 'PortfolioController@update')->middleware('client');
+Route::delete('portfolios/{id}', 'PortfolioController@destroy')->middleware('client');

@@ -61,9 +61,25 @@ class PortfolioController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(StorePortfolio $request, $id)
     {
-        //
+        $update = [
+            'title' => $request->title,
+            'url' => $request->url,
+            'image_url' => $request->image_url
+        ];
+        $portfolio = Portfolio::where('id', $id)->update($update);
+        if ($portfolio) {
+            return response()->json([
+                'message' => 'Portfolio updated successfully',
+                'affected' => $portfolio,
+                'data' => $update
+            ], 200, [], JSON_UNESCAPED_UNICODE);
+        } else {
+            return response()->json([
+                'message' => 'Portfolio not found',
+            ], 404, [], JSON_UNESCAPED_UNICODE);
+        }
     }
 
     /**
