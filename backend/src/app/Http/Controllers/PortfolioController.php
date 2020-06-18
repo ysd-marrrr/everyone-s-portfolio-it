@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
+use App\Portfolio;
+use App\Http\Requests\StorePortfolio;
+
 class PortfolioController extends Controller
 {
     /**
@@ -14,7 +17,7 @@ class PortfolioController extends Controller
      */
     public function index()
     {
-        $portfolios = DB::table('portfolios')->paginate(20);
+        $portfolios = Portfolio::paginate(20);
         return response()->json($portfolios, 200, [], JSON_UNESCAPED_UNICODE);
     }
 
@@ -24,9 +27,13 @@ class PortfolioController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StorePortfolio $request)
     {
-        //
+        $inserted = Portfolio::create($request->all());
+        return response()->json([
+            'message' => 'Portfolio added successfully.',
+            'data' => $inserted
+        ], 201, [], JSON_UNESCAPED_UNICODE);
     }
 
     /**

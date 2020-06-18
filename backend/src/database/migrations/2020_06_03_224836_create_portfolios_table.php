@@ -26,7 +26,7 @@ class CreatePortfoliosTable extends Migration
             $table->string(
                 'image_url',
                 512
-            );
+            )->nullable();
             $table->timestamps();
         });
     }
