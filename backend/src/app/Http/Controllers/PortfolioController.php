@@ -90,6 +90,15 @@ class PortfolioController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $portfolio = Portfolio::where('id', $id)->delete();
+        if ($portfolio) {
+            return response()->json([
+                'message' => 'Portfolio deleted successfully',
+            ], 200);
+        } else {
+            return response()->json([
+                'message' => 'Portfolio not found',
+            ], 404, [], JSON_UNESCAPED_UNICODE);
+        }
     }
 }
