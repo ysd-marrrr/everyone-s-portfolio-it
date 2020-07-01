@@ -22,4 +22,6 @@ services:
       - ./backend/src:/var/www/html
     ports: 
       - "8000:8000"
+    depends_on:
+      - db
 
