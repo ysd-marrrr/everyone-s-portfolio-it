@@ -1,5 +1,5 @@
 <template>
-  <top />
+  <top :portfolio-list-prop="apiResult.data" />
 </template>
 
 <script lang="ts">

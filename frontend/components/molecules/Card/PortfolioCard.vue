@@ -40,7 +40,7 @@ export default {
     skillListProp: {
       type: Array,
       default() {
-        return ['Skill', 'Skill', 'Skill', 'Skill']
+        return []
       }
     }
   },
