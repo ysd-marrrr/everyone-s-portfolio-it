@@ -4,7 +4,7 @@
       <portfolio-image :image-url-prop="imageUrlProp" />
     </a>
     <div class="portfolio-content">
-      <a class="portfolio-link" :href="portfolioUrl">
+      <a class="portfolio-link" target="_blank" :href="portfolioUrl">
         <h3 class="portfolio-title">
           <slot name="title">TITLE</slot>
         </h3>
