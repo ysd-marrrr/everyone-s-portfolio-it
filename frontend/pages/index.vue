@@ -1,5 +1,5 @@
 <template>
-  <top />
+  <top :portfolio-list-prop="apiResult.data" />
 </template>
 
 <script lang="ts">
@@ -9,6 +9,12 @@ import Top from '@/components/templates/Top.vue'
 export default Vue.extend({
   components: {
     Top
+  },
+  async asyncData({ app, query }) {
+    const pageNo = query.page || 1
+    const path = '/portfolios?page=' + pageNo
+    const res = await app.$axios.get(path)
+    return { apiResult: res.data }
   }
 })
 </script>
