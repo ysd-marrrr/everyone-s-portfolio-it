@@ -1,20 +1,33 @@
 <template>
   <div class="pagination flex justify-center items-center">
     <template v-if="isTruncatedPageLeft"
-      ><span class="page">1</span><span>...</span></template
-    >
-    <span v-for="(item, index) in pageList" :key="index" class="page">{{
-      item
-    }}</span>
+      ><pagination-bullet
+        :page-prop="1"
+        @onPageBulletClicked="changePage"
+      /><span>...</span></template
+    ><pagination-bullet
+      v-for="(item, index) in pageList"
+      :key="index"
+      :page-prop="item"
+      @onPageBulletClicked="changePage"
+    />
     <template v-if="isTruncatedPageRight"
-      ><span>...</span><span class="page">{{ totalPage }}</span></template
-    >
+      ><span>...</span
+      ><pagination-bullet
+        :page-prop="totalPage"
+        @onPageBulletClicked="changePage"
+    /></template>
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
+import PaginationBullet from '@/components/atoms/Pagination/PaginationBullet.vue'
+
 export default Vue.extend({
+  components: {
+    PaginationBullet
+  },
   props: {
     currentPageProp: {
       type: Number,
@@ -79,22 +92,11 @@ export default Vue.extend({
         ? false
         : this.currentPage + this.pageSpan < this.totalPage
     }
+  },
+  methods: {
+    changePage(newPage) {
+      this.$emit('changePage', newPage)
+    }
   }
 })
 </script>
-
-<style lang="scss" scoped>
-span.page {
-  background: rgba(255, 255, 173, 1);
-  border-radius: 50%;
-  width: 3rem;
-  height: 3rem;
-  text-align: center;
-  line-height: 3rem;
-
-  margin: 1rem;
-  &:hover {
-    background: rgba(255, 255, 173, 0.5);
-  }
-}
-</style>
