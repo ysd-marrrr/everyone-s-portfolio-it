@@ -2,6 +2,11 @@
   <div class="top-wrapper">
     <header-nav />
     <portfolio-card-list :portfolio-list-prop="portfolioList" />
+    <pagination
+      :current-page-prop="currentPage"
+      :total-page-prop="totalPage"
+      @changePage="onChangePage"
+    />
     <site-footer />
   </div>
 </template>
@@ -10,13 +15,15 @@
 import Vue from 'vue'
 import HeaderNav from '@/components/organisms/Section/HeaderNav.vue'
 import PortfolioCardList from '@/components/organisms/Section/PortfolioCardList.vue'
+import Pagination from '@/components/molecules/Pagination/Pagination.vue'
 import SiteFooter from '@/components/organisms/Section/SiteFooter.vue'
 
 export default Vue.extend({
   components: {
     HeaderNav,
     PortfolioCardList,
-    SiteFooter
+    SiteFooter,
+    Pagination
   },
   props: {
     portfolioListProp: {
@@ -24,11 +31,30 @@ export default Vue.extend({
       default() {
         return []
       }
+    },
+    currentPageProp: {
+      type: Number,
+      default: 1
+    },
+    totalPageProp: {
+      type: Number,
+      default: 1
     }
   },
   computed: {
     portfolioList() {
       return this.portfolioListProp
+    },
+    currentPage() {
+      return this.currentPageProp
+    },
+    totalPage() {
+      return this.totalPageProp
+    }
+  },
+  methods: {
+    onChangePage(newPage) {
+      this.$emit('changePage', newPage)
     }
   }
 })

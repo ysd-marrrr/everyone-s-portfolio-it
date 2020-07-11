@@ -1,5 +1,5 @@
 <template>
-  <div class="pagination flex justify-center items-center">
+  <section class="pagination flex justify-center items-center">
     <template v-if="isTruncatedPageLeft"
       ><pagination-bullet
         :page-prop="1"
@@ -17,7 +17,7 @@
         :page-prop="totalPage"
         @onPageBulletClicked="changePage"
     /></template>
-  </div>
+  </section>
 </template>
 
 <script lang="ts">
