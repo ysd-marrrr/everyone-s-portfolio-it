@@ -17,7 +17,9 @@ export default Vue.extend({
   },
   async asyncData({ app, query }) {
     const pageNo = query.page || 1
-    return await app.receiveData(pageNo)
+    const path = '/portfolios?page=' + pageNo
+    const res = await app.$axios.get(path)
+    return { apiResult: res.data }
   },
   data() {
     return {
@@ -27,11 +29,11 @@ export default Vue.extend({
   },
   methods: {
     onChangePage(newPage) {
-      this.receiveData(newPage)
+      this.currentPage = newPage
+      this.receiveData()
     },
-    async receiveData(pageNo) {
-      this.currentPage = pageNo
-      const path = '/portfolios?page=' + pageNo
+    async receiveData() {
+      const path = '/portfolios?page=' + this.currentPage
       const res = await this.$axios.get(path)
       return { apiResult: res.data }
     }
