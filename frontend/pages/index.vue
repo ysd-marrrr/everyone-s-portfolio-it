@@ -1,5 +1,10 @@
 <template>
-  <top :portfolio-list-prop="apiResult.data" />
+  <top
+    :portfolio-list-prop="apiResult.data"
+    :current-page-prop="currentPage"
+    :total-page-prop="totalPage"
+    @changePage="onChangePage"
+  />
 </template>
 
 <script lang="ts">
@@ -15,6 +20,23 @@ export default Vue.extend({
     const path = '/portfolios?page=' + pageNo
     const res = await app.$axios.get(path)
     return { apiResult: res.data }
+  },
+  data() {
+    return {
+      currentPage: 1,
+      totalPage: 1
+    }
+  },
+  methods: {
+    onChangePage(newPage) {
+      this.currentPage = newPage
+      this.receiveData()
+    },
+    async receiveData() {
+      const path = '/portfolios?page=' + this.currentPage
+      const res = await this.$axios.get(path)
+      return { apiResult: res.data }
+    }
   }
 })
 </script>
