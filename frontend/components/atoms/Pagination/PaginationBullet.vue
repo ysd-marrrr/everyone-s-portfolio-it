@@ -2,7 +2,7 @@
   <span class="page" @click="onClick">{{ page }}</span>
 </template>
 
-<script lang="ts">
+<script>
 import Vue from 'vue'
 export default Vue.extend({
   props: {

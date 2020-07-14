@@ -20,7 +20,7 @@
   </section>
 </template>
 
-<script lang="ts">
+<script>
 import Vue from 'vue'
 import PaginationBullet from '@/components/atoms/Pagination/PaginationBullet.vue'
 
