@@ -1,20 +1,26 @@
 <template>
   <v-layout column justify-center align-center>
-    <v-flex xs12 sm8 md6>
+    <v-container fluid>
       <v-card>
-        <v-card-title class="headline">
-          Welcome to the Vuetify + Nuxt.js template
-        </v-card-title>
-        <v-card-text>
-          <p>ここにメッセージとか</p>
-        </v-card-text>
-        <v-card-actions>
-          <v-spacer />
-          <v-btn color="primary" nuxt to="/inspire">
-            Button
-          </v-btn>
-        </v-card-actions>
+        <h2>登録されているポートフォリオ一覧(簡易)</h2>
+        <portfolio-table-view :portfolio-list-prop="apiResult.data" />
       </v-card>
-    </v-flex>
+    </v-container>
   </v-layout>
 </template>
+
+<script lang="ts">
+import Vue from 'vue'
+import PortfolioTableView from '@/components/organisms/PortfolioTableView.vue'
+
+export default Vue.extend({
+  components: {
+    PortfolioTableView,
+  },
+  async asyncData({ app }) {
+    const path = '/portfolios?page=1'
+    const res = await app.$axios.get(path)
+    return { apiResult: res.data }
+  },
+})
+</script>
