@@ -1,5 +1,5 @@
 <template>
-  <v-simple-table>
+  <v-simple-table class="portfolio-list">
     <template v-slot:default>
       <thead>
         <tr>
@@ -15,7 +15,9 @@
         <tr v-for="item in portfolioListProp" :key="item.id">
           <td>{{ item.id }}</td>
           <td>{{ item.title }}</td>
-          <td>{{ item.url }}</td>
+          <td>
+            <a :href="item.url" target="_blank">{{ item.url }}</a>
+          </td>
           <td>{{ item.image_url }}</td>
           <td>{{ item.created_at }}</td>
           <td>{{ item.updated_at }}</td>
@@ -37,3 +39,11 @@ export default {
   },
 }
 </script>
+
+<style lang="scss" scoped>
+.portfolio-list {
+  a {
+    color: rgb(191, 191, 255);
+  }
+}
+</style>
