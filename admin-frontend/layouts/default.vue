@@ -42,7 +42,7 @@ export default {
           to: '/',
         },
         {
-          icon: 'mdi-chart-bubble',
+          icon: 'mdi-order-bool-descending-variant',
           title: 'データ管理',
           to: '/inspire',
         },
