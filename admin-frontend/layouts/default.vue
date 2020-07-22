@@ -44,7 +44,7 @@ export default {
         {
           icon: 'mdi-order-bool-descending-variant',
           title: 'データ管理',
-          to: '/inspire',
+          to: '/portfolios',
         },
       ],
       miniVariant: false,
