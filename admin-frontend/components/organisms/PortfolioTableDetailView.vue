@@ -20,8 +20,8 @@
             <a :href="item.url" target="_blank">{{ item.url }}</a>
           </td>
           <td>{{ item.image_url }}</td>
-          <td>{{ item.created_at }}</td>
-          <td>{{ item.updated_at }}</td>
+          <td>{{ convertUtcToLocal(item.created_at) }}</td>
+          <td>{{ convertUtcToLocal(item.updated_at) }}</td>
           <td>
             <div class="text-center">
               <v-menu offset-y>
@@ -70,6 +70,9 @@ export default {
   methods: {
     onClick(eventType, index) {
       console.log('onClick: ' + eventType + ' and ' + index)
+    },
+    convertUtcToLocal(uctDateStr) {
+      return this.$dayjs(uctDateStr).format('YYYY-MM-DD HH:mm:ss')
     },
   },
 }

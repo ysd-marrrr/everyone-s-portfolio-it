@@ -51,6 +51,7 @@ export default {
     // Doc: https://github.com/nuxt-community/stylelint-module
     '@nuxtjs/stylelint-module',
     '@nuxtjs/vuetify',
+    '@nuxtjs/dayjs',
   ],
   /*
    ** Nuxt.js modules
@@ -86,6 +87,10 @@ export default {
         },
       },
     },
+  },
+  dayjs: {
+    locales: ['en', 'ja'],
+    defaultLocale: 'ja',
   },
   /*
    ** Build configuration

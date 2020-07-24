@@ -28,6 +28,7 @@
   "dependencies": {
     "@nuxt/typescript-runtime": "^0.4.10",
     "@nuxtjs/axios": "^5.11.0",
+    "@nuxtjs/dayjs": "^1.1.9",
     "nuxt": "^2.13.0"
   },
   "devDependencies": {
