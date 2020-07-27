@@ -23,6 +23,13 @@
       <v-toolbar-title v-text="title" />
     </v-app-bar>
     <v-main>
+      <v-alert v-if="!isSetEnv" prominent type="error">
+        <v-row align="center">
+          <v-col class="grow"
+            >環境変数<code>VUE_APP_ADMIN_TOKEN</code>にAPIキーを設定してサーバーを再起動してください。正しく設定しないとデータの操作ができません。
+          </v-col>
+        </v-row>
+      </v-alert>
       <v-container>
         <nuxt />
       </v-container>
@@ -52,6 +59,11 @@ export default {
       rightDrawer: false,
       title: 'みんなのポートフォリオ 管理画面',
     }
+  },
+  computed: {
+    isSetEnv() {
+      return !!process.env.VUE_APP_ADMIN_TOKEN
+    },
   },
 }
 </script>

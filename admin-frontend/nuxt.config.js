@@ -52,6 +52,7 @@ export default {
     '@nuxtjs/stylelint-module',
     '@nuxtjs/vuetify',
     '@nuxtjs/dayjs',
+    '@nuxtjs/dotenv',
   ],
   /*
    ** Nuxt.js modules
