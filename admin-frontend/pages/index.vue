@@ -1,5 +1,8 @@
 <template>
   <v-layout column justify-center align-center>
+    <v-container v-if="apiCode !== 200">
+      <v-alert type="warning"> APIに接続できません({{ apiCode }}) </v-alert>
+    </v-container>
     <v-container>
       <v-row>
         <v-col>
@@ -32,8 +35,18 @@ export default Vue.extend({
   },
   async asyncData({ app }) {
     const path = '/portfolios?page=1'
-    const res = await app.$axios.get(path)
-    return { apiResult: res.data }
+    const res = await app.$axios
+      .get(path)
+      .then((response: any) => {
+        return { apiResult: response.data, apiCode: response.status }
+      })
+      .catch(() => {
+        return {
+          apiCode: 500,
+          apiResult: [],
+        }
+      })
+    return res
   },
 })
 </script>
