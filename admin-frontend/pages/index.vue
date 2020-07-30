@@ -1,7 +1,7 @@
 <template>
   <v-layout column justify-center align-center>
-    <v-container v-if="apiCode !== 200">
-      <v-alert type="warning"> APIに接続できません({{ apiCode }}) </v-alert>
+    <v-container v-if="message">
+      <v-alert type="warning"> {{ message }} </v-alert>
     </v-container>
     <v-container>
       <v-row>
@@ -38,12 +38,31 @@ export default Vue.extend({
     const res = await app.$axios
       .get(path)
       .then((response: any) => {
-        return { apiResult: response.data, apiCode: response.status }
-      })
-      .catch(() => {
         return {
-          apiCode: 500,
-          apiResult: [],
+          apiResult: response.data,
+          apiCode: response.status,
+          message: '',
+        }
+      })
+      .catch((error: any) => {
+        console.log('エラーを起こしたリクエスト')
+        console.log(error.config)
+
+        if (error.response) {
+          return {
+            apiResult: [],
+            message: `APIに接続できません( ${error.response.status} )`,
+          }
+        } else if (error.request) {
+          return {
+            apiResult: [],
+            message: 'APIに接続できません',
+          }
+        } else {
+          return {
+            apiResult: [],
+            message: 'リクエストを生成できません',
+          }
         }
       })
     return res
