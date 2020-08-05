@@ -34,17 +34,8 @@ export default Vue.extend({
     TopCounter,
   },
   async asyncData(context: any) {
-    const res = await context.app.$api.getList().catch((error: any) => {
-      console.log('error(override)')
-      console.log(error)
-      return error
-    })
-    return (
-      res || {
-        apiResult: [],
-        message: '取得に失敗しました',
-      }
-    )
+    const res = await context.app.$api.getList()
+    return res
   },
 })
 </script>

@@ -10,7 +10,7 @@ class API {
   }
 
   async getList(page = 1, size = 20) {
-    await this.axios
+    const res = await this.axios
       .$get(`/portfolios?page=${page}&size=${size}`)
       .then((response) => {
         return {
@@ -20,8 +20,11 @@ class API {
         }
       })
       .catch((error) => {
-        console.log('error')
-        console.log(error)
+        return {
+          apiResult: [],
+          message: `取得に失敗しました(${error})`,
+        }
       })
+    return res
   }
 }
