@@ -33,39 +33,18 @@ export default Vue.extend({
     PortfolioTableView,
     TopCounter,
   },
-  async asyncData({ app }) {
-    const path = '/portfolios?page=1'
-    const res = await app.$axios
-      .get(path)
-      .then((response: any) => {
-        return {
-          apiResult: response.data,
-          apiCode: response.status,
-          message: '',
-        }
-      })
-      .catch((error: any) => {
-        console.log('エラーを起こしたリクエスト')
-        console.log(error.config)
-
-        if (error.response) {
-          return {
-            apiResult: [],
-            message: `APIに接続できません( ${error.response.status} )`,
-          }
-        } else if (error.request) {
-          return {
-            apiResult: [],
-            message: 'APIに接続できません',
-          }
-        } else {
-          return {
-            apiResult: [],
-            message: 'リクエストを生成できません',
-          }
-        }
-      })
-    return res
+  async asyncData(context: any) {
+    const res = await context.app.$api.getList().catch((error: any) => {
+      console.log('error(override)')
+      console.log(error)
+      return error
+    })
+    return (
+      res || {
+        apiResult: [],
+        message: '取得に失敗しました',
+      }
+    )
   },
 })
 </script>
