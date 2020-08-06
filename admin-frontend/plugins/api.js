@@ -14,8 +14,7 @@ class API {
       .$get(`/portfolios?page=${page}&size=${size}`)
       .then((response) => {
         return {
-          apiResult: response.data,
-          apiCode: response.status,
+          apiResult: response,
           message: '',
         }
       })
