@@ -14,13 +14,13 @@ class API {
       .$get(`/portfolios?page=${page}&size=${size}`)
       .then((response) => {
         return {
-          apiResult: response,
+          portfolioData: response,
           message: '',
         }
       })
       .catch((error) => {
         return {
-          apiResult: [],
+          portfolioData: [],
           message: `取得に失敗しました(${error})`,
         }
       })
