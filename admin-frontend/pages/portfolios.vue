@@ -11,6 +11,7 @@
         <h2>登録されているポートフォリオ一覧</h2>
         <portfolio-table-detail-view
           :portfolio-list-prop="apiResult.portfolioData.data"
+          @onClickDelete="onClickDelete"
         />
         <v-pagination
           v-model="apiResult.portfolioData.current_page"
@@ -21,6 +22,23 @@
         ></v-pagination>
       </v-card>
     </v-container>
+    <v-dialog v-model="deleteDialog" max-width="290">
+      <v-card>
+        <v-card-title class="headline">ポートフォリオを削除</v-card-title>
+        <v-card-text>
+          取り消しができません。本当に削除しますか。
+        </v-card-text>
+        <v-card-actions>
+          <v-spacer></v-spacer>
+          <v-btn color="green darken-1" text @click="deleteDialog = false">
+            いいえ
+          </v-btn>
+          <v-btn color="green darken-1" text @click="deleteDialog = false">
+            はい
+          </v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
   </v-layout>
 </template>
 
@@ -41,11 +59,15 @@ export default Vue.extend({
   data() {
     return {
       apiResult: {},
+      deleteDialog: false,
     }
   },
   methods: {
     async onChangePage(pageNumber: number): Promise<any> {
       this.apiResult = await this.$api.getList(pageNumber)
+    },
+    onClickDelete() {
+      this.deleteDialog = true
     },
   },
 })

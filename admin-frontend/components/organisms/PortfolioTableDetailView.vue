@@ -70,6 +70,7 @@ export default {
   methods: {
     onClick(eventType, index) {
       console.log('onClick: ' + eventType + ' and ' + index)
+      this.$emit(eventType)
     },
     convertUtcToLocal(uctDateStr) {
       return this.$dayjs(uctDateStr).format('YYYY-MM-DD HH:mm:ss')
