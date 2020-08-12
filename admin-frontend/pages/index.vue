@@ -22,7 +22,10 @@
         <portfolio-table-view
           :portfolio-list-prop="apiResult.portfolioData.data"
         />
-        <p>さらに表示する場合はデータ管理を開いてください。</p>
+        <p>
+          さらに表示する場合は<nuxt-link to="/portfolios">データ管理</nuxt-link
+          >を開いてください。
+        </p>
       </v-card>
     </v-container>
   </v-layout>
