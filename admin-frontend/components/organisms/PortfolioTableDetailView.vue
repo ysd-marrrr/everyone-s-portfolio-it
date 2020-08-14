@@ -13,7 +13,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-for="item in portfolioListProp" :key="item.id">
+        <tr v-for="(item, index) in portfolioListProp" :key="item.id">
           <td>{{ item.id }}</td>
           <td>{{ item.title }}</td>
           <td>
@@ -32,9 +32,9 @@
                 </template>
                 <v-list>
                   <v-list-item
-                    v-for="(dropItem, index) in dropdownItems"
-                    :key="index"
-                    @click="onClick(dropItem.action, item.id)"
+                    v-for="(dropItem, dropIndex) in dropdownItems"
+                    :key="dropIndex"
+                    @click="onClick(dropItem.action, index)"
                   >
                     <v-list-item-title>{{ dropItem.title }}</v-list-item-title>
                   </v-list-item>
@@ -70,7 +70,7 @@ export default {
   methods: {
     onClick(eventType, index) {
       console.log('onClick: ' + eventType + ' and ' + index)
-      this.$emit(eventType)
+      this.$emit(eventType, index)
     },
     convertUtcToLocal(uctDateStr) {
       return this.$dayjs(uctDateStr).format('YYYY-MM-DD HH:mm:ss')
