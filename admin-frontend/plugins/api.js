@@ -26,4 +26,20 @@ class API {
       })
     return res
   }
+
+  async deletePortfolio(portfolioId) {
+    const res = await this.axios
+      .$delete(`/portfolios/${portfolioId}`)
+      .then(() => {
+        return {
+          message: '',
+        }
+      })
+      .catch((error) => {
+        return {
+          message: `削除に失敗しました(${error})`,
+        }
+      })
+    return res
+  }
 }

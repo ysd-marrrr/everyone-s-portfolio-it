@@ -1,5 +1,6 @@
 export default function ({ $axios }) {
   $axios.onRequest((config) => {
+    config.headers.Authorization = `Bearer ${process.env.VUE_APP_ADMIN_TOKEN}`
     console.log('Making request to ' + config.url)
   })
 
