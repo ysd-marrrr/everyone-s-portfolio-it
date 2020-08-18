@@ -8,9 +8,16 @@
     </v-container>
     <v-container fluid>
       <v-card outlined tile>
-        <h2>登録されているポートフォリオ一覧</h2>
+        <v-toolbar>
+          <v-toolbar-title>登録されているポートフォリオ一覧</v-toolbar-title>
+          <v-divider class="mx-4" inset vertical></v-divider>
+          <v-btn color="primary" dark class="mb-2" @click="onClickEdit"
+            >ポートフォリオ追加</v-btn
+          >
+        </v-toolbar>
         <portfolio-table-detail-view
           :portfolio-list-prop="apiResult.portfolioData.data"
+          @onClickEdit="onClickEdit"
           @onClickDelete="onClickDelete"
         />
         <v-pagination
@@ -22,10 +29,17 @@
         ></v-pagination>
       </v-card>
     </v-container>
+    <edit-dialog
+      :dialog-prop="editDialog"
+      :edit-item-prop="dialogSelectedContent"
+      @editCancel="resetDialog"
+      @editExecute="onEditExecute"
+      >{{ dialogSelectedContent }}</edit-dialog
+    >
     <delete-dialog
       :dialog-prop="deleteDialog"
       :delete-item-prop="dialogSelectedContent"
-      @deleteCancel="onDeleteCancel"
+      @deleteCancel="resetDialog"
       @deleteExecute="onDeleteExecute"
       >{{ dialogSelectedContent }}</delete-dialog
     >
@@ -37,11 +51,13 @@ import { Context } from '@nuxt/types'
 
 import Vue from 'vue'
 import PortfolioTableDetailView from '@/components/organisms/PortfolioTableDetailView.vue'
+import EditDialog from '@/components/molecules/Dialog/EditDialog.vue'
 import DeleteDialog from '@/components/molecules/Dialog/DeleteDialog.vue'
 
 export default Vue.extend({
   components: {
     PortfolioTableDetailView,
+    EditDialog,
     DeleteDialog,
   },
   async asyncData(context: Context): Promise<any> {
@@ -51,6 +67,7 @@ export default Vue.extend({
   data() {
     return {
       apiResult: { message: '', portfolioData: { data: [] } },
+      editDialog: false,
       deleteDialog: false,
       dialogSelectedContent: { id: 0, title: '', url: '' },
       dialogSelectedId: 0,
@@ -64,27 +81,46 @@ export default Vue.extend({
       this.apiResult = await this.$api.getList(this.selectedPage)
       this.warningMessage = this.apiResult.message
     },
+    onClickCreate() {
+      this.resetDialog()
+      this.editDialog = true
+    },
+    onClickEdit(editIndex: number) {
+      this.resetDialog()
+      this.editDialog = true
+      this.dialogSelectedId = editIndex
+      this.dialogSelectedContent = this.apiResult.portfolioData.data[editIndex]
+    },
     onClickDelete(deleteIndex: number) {
+      this.resetDialog()
       this.deleteDialog = true
       this.dialogSelectedId = deleteIndex
       this.dialogSelectedContent = this.apiResult.portfolioData.data[
         deleteIndex
       ]
     },
-    onDeleteCancel() {
+    closeDialog() {
+      this.editDialog = false
       this.deleteDialog = false
+    },
+    resetDialog() {
       this.dialogSelectedContent = { id: 0, title: '', url: '' }
       this.dialogSelectedId = 0
+      this.closeDialog()
+    },
+    async onEditExecute(newData: {}) {
+      this.closeDialog()
+      const result = await this.$api.editPortfolio(newData)
+      this.warningMessage = result.message
+      this.apiResult = await this.$api.getList(this.selectedPage)
     },
     async onDeleteExecute() {
-      this.deleteDialog = false
-      const result = await this.$api.deletePortfolio(
+      this.closeDialog()
+      const result = await this.$api.editPortfolio(
         this.dialogSelectedContent.id
       )
       this.warningMessage = result.message
       this.apiResult = await this.$api.getList(this.selectedPage)
-      this.dialogSelectedContent = { id: 0, title: '', url: '' }
-      this.dialogSelectedId = 0
     },
   },
 })

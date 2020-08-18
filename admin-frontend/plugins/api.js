@@ -27,6 +27,40 @@ class API {
     return res
   }
 
+  async editPortfolio(portfolioData) {
+    console.log(portfolioData)
+    if (portfolioData.id === 0) {
+      return await this.axios
+        .$post(`/portfolios`, {
+          title: portfolioData.title,
+          url: portfolioData.url,
+        })
+        .then(() => {
+          return {
+            message: '',
+          }
+        })
+        .catch((error) => {
+          return {
+            message: `追加に失敗しました(${error})`,
+          }
+        })
+    } else {
+      return await this.axios
+        .$put(`/portfolios/${portfolioData.id}`, portfolioData)
+        .then(() => {
+          return {
+            message: '',
+          }
+        })
+        .catch((error) => {
+          return {
+            message: `編集に失敗しました(${error})`,
+          }
+        })
+    }
+  }
+
   async deletePortfolio(portfolioId) {
     const res = await this.axios
       .$delete(`/portfolios/${portfolioId}`)
