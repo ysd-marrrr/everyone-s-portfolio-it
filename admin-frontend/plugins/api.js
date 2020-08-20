@@ -28,7 +28,6 @@ class API {
   }
 
   async editPortfolio(portfolioData) {
-    console.log(portfolioData)
     if (portfolioData.id === 0) {
       return await this.axios
         .$post(`/portfolios`, {
