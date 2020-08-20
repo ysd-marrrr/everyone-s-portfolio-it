@@ -11,7 +11,7 @@
         <v-toolbar>
           <v-toolbar-title>登録されているポートフォリオ一覧</v-toolbar-title>
           <v-divider class="mx-4" inset vertical></v-divider>
-          <v-btn color="primary" dark class="mb-2" @click="onClickEdit"
+          <v-btn color="primary" dark class="mb-2" @click="onClickCreate"
             >ポートフォリオ追加</v-btn
           >
         </v-toolbar>
@@ -89,7 +89,9 @@ export default Vue.extend({
       this.resetDialog()
       this.editDialog = true
       this.dialogSelectedId = editIndex
-      this.dialogSelectedContent = this.apiResult.portfolioData.data[editIndex]
+      this.dialogSelectedContent = JSON.parse(
+        JSON.stringify(this.apiResult.portfolioData.data[editIndex])
+      )
     },
     onClickDelete(deleteIndex: number) {
       this.resetDialog()
