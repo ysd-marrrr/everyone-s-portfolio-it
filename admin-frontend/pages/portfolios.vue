@@ -18,6 +18,7 @@
         <portfolio-table-detail-view
           :portfolio-list-prop="apiResult.portfolioData.data"
           @onClickEdit="onClickEdit"
+          @onClickRefreshThumbnail="onClickRefreshThumbnail"
           @onClickDelete="onClickDelete"
         />
         <v-pagination
@@ -92,6 +93,9 @@ export default Vue.extend({
       this.dialogSelectedContent = JSON.parse(
         JSON.stringify(this.apiResult.portfolioData.data[editIndex])
       )
+    },
+    onClickRefreshThumbnail() {
+      alert('まだ実装されていません')
     },
     onClickDelete(deleteIndex: number) {
       this.resetDialog()
