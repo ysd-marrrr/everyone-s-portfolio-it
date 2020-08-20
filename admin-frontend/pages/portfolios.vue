@@ -116,7 +116,7 @@ export default Vue.extend({
     },
     async onDeleteExecute() {
       this.closeDialog()
-      const result = await this.$api.editPortfolio(
+      const result = await this.$api.deletePortfolio(
         this.dialogSelectedContent.id
       )
       this.warningMessage = result.message
