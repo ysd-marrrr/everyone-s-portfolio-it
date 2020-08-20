@@ -24,7 +24,7 @@
           v-model="apiResult.portfolioData.current_page"
           :circle="true"
           :total-visible="5"
-          :length="apiResult.portfolioData.total"
+          :length="apiResult.portfolioData.last_page"
           @input="onChangePage"
         ></v-pagination>
       </v-card>
