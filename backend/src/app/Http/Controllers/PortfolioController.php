@@ -17,7 +17,7 @@ class PortfolioController extends Controller
      */
     public function index()
     {
-        $portfolios = Portfolio::paginate(20);
+        $portfolios = Portfolio::orderBy('updated_at', 'desc')->paginate(20);
         return response()->json($portfolios, 200, [], JSON_UNESCAPED_UNICODE);
     }
 
