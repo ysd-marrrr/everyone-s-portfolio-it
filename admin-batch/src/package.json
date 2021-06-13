@@ -1,0 +1,12 @@
+{
+  "name": "admin-batch",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "puppeteer": "^10.0.0"
+  },
+  "scripts": {
+    "puppeteer": "node index.js"
+  }
+}

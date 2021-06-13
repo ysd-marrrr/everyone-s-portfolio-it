@@ -25,3 +25,11 @@ services:
     depends_on:
       - db
 
+  admin-batch:
+    build:
+      context: ./admin-batch
+      dockerfile: Dockerfile
+    container_name: admin_batch
+    volumes: 
+      - ./admin-batch/src:/app
+    tty: true
