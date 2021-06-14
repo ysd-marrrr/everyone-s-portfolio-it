@@ -7,6 +7,8 @@
     "puppeteer": "^10.0.0"
   },
   "scripts": {
-    "puppeteer": "node index.js"
+    "single-capture": "node ./src/single-capture.js",
+    "db": "node ./src/db-test.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
   }
 }
