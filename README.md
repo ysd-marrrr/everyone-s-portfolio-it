@@ -35,4 +35,19 @@ $ yarn generate
 $ yarn test
 ```
 
-For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
+## Build Setup(Backend)
+
+```bash
+# build container images
+$ docker-compose -d --build db 
+$ docker-compose -d --build backend
+
+# install composer dependencies
+$ docker-compose exec backend composer install
+
+# migration
+$ docker-compose exec php artisan migrate
+
+# start the dev server
+$ docker-compose exec backend php artisan serve --host 0.0.0.0
+```
