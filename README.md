@@ -11,7 +11,7 @@
 
 ## Backend
 
- * soon...
+ * Laravel(PHP)
 
 ## Build Setup(Frontend)
 
@@ -39,6 +39,7 @@ $ yarn test
 
 ```bash
 # build container images
+$ cp ./env.local ./.env
 $ docker-compose -d --build db 
 $ docker-compose -d --build backend
 
@@ -46,7 +47,8 @@ $ docker-compose -d --build backend
 $ docker-compose exec backend composer install
 
 # migration
-$ docker-compose exec php artisan migrate
+$ cp ./backend/src/.env.local ./backend/src/.env
+$ docker-compose exec backend php artisan migrate
 
 # start the dev server
 $ docker-compose exec backend php artisan serve --host 0.0.0.0
