@@ -26,21 +26,21 @@ import PaginationBullet from '@/components/atoms/Pagination/PaginationBullet.vue
 
 export default Vue.extend({
   components: {
-    PaginationBullet
+    PaginationBullet,
   },
   props: {
     currentPageProp: {
       type: Number,
-      default: 1
+      default: 1,
     },
     totalPageProp: {
       type: Number,
-      default: 1
+      default: 1,
     },
     maxDisplayPageProp: {
       type: Number,
-      default: 5
-    }
+      default: 5,
+    },
   },
   computed: {
     currentPage() {
@@ -91,12 +91,12 @@ export default Vue.extend({
       return this.totalPage <= this.maxDisplayPage
         ? false
         : this.currentPage + this.pageSpan < this.totalPage
-    }
+    },
   },
   methods: {
     changePage(newPage) {
       this.$emit('changePage', newPage)
-    }
-  }
+    },
+  },
 })
 </script>

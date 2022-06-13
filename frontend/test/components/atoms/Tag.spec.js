@@ -6,8 +6,8 @@ describe('Tag', () => {
     const sampleText = 'Vue.js'
     const wrapper = mount(Tag, {
       slots: {
-        default: sampleText
-      }
+        default: sampleText,
+      },
     })
     expect(wrapper.find('span.tag').text()).toBe(sampleText)
   })

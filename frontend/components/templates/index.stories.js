@@ -5,11 +5,11 @@ import { generateSampleData } from '@/.storybook/sampleData.js'
 const sampleData = generateSampleData()
 
 export default {
-  title: '/templates/TopPage'
+  title: '/templates/TopPage',
 }
 
 export const top = () => ({
   components: { Top },
   data: () => ({ sampleData }),
-  template: `<top :portfolio-list-prop="sampleData"/>`
+  template: `<top :portfolio-list-prop="sampleData"/>`,
 })

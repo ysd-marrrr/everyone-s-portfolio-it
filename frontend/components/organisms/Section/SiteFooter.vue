@@ -11,8 +11,8 @@
 <style lang="scss" scoped>
 footer {
   width: 100%;
-  background-color: rgb(194, 180, 99);
-  padding: 2rem 0 20rem 0;
+  padding: 2rem 0 20rem;
   margin: 0 auto;
+  background-color: rgb(194, 180, 99);
 }
 </style>

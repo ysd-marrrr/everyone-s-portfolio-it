@@ -7,21 +7,21 @@ import { generateSampleData } from '@/.storybook/sampleData.js'
 const sampleData = generateSampleData()
 
 export default {
-  title: '/organisms/Section'
+  title: '/organisms/Section',
 }
 
 export const portfolioCardList = () => ({
   components: { PortfolioCardList },
   data: () => ({ sampleData }),
-  template: `<portfolio-card-list :portfolio-list-prop="sampleData"/>`
+  template: `<portfolio-card-list :portfolio-list-prop="sampleData"/>`,
 })
 
 export const headerNav = () => ({
   components: { HeaderNav },
-  template: `<header-nav />`
+  template: `<header-nav />`,
 })
 
 export const siteFooter = () => ({
   components: { SiteFooter },
-  template: `<site-footer />`
+  template: `<site-footer />`,
 })

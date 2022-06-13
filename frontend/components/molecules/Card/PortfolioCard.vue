@@ -26,23 +26,23 @@ import PortfolioImage from '@/components/atoms/Image/PortfolioImage.vue'
 export default {
   components: {
     TagList,
-    PortfolioImage
+    PortfolioImage,
   },
   props: {
     urlProp: {
       type: String,
-      default: '#portfolios'
+      default: '#portfolios',
     },
     imageUrlProp: {
       type: String,
-      default: ''
+      default: '',
     },
     skillListProp: {
       type: Array,
       default() {
         return []
-      }
-    }
+      },
+    },
   },
   computed: {
     portfolioUrl() {
@@ -50,8 +50,8 @@ export default {
     },
     portfolioSkillList() {
       return this.skillListProp
-    }
-  }
+    },
+  },
 }
 </script>
 
@@ -59,14 +59,12 @@ export default {
 .portfolio-card {
   position: relative;
   top: 0;
-
-  transition: all 0.5s ease;
-  border-radius: 5px;
-  box-shadow: 0 1rem 30px 0 rgba(0, 0, 0, 0.2);
   padding: 0.5rem;
   margin: 0.5rem;
-
   background: white;
+  border-radius: 5px;
+  box-shadow: 0 1rem 30px 0 rgba(0, 0, 0, 20%);
+  transition: all 0.5s ease;
 
   &:hover {
     top: -1rem;
@@ -79,8 +77,8 @@ export default {
 }
 
 .portfolio-content {
+  margin: 0.5rem 0 1rem;
   text-align: center;
-  margin: 0.5rem 0 1rem 0;
 }
 
 // タブレット以上の場合は横に複数枚並べる

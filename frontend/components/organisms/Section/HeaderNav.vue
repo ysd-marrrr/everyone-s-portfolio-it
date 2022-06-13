@@ -16,13 +16,13 @@ export default Vue.extend({
   props: {
     portfolioCountProp: {
       type: Number,
-      default: 0
+      default: 0,
     },
     lastUpdatedProp: {
       type: String,
-      default: '2020-04-30'
-    }
-  }
+      default: '2020-04-30',
+    },
+  },
 })
 </script>
 
