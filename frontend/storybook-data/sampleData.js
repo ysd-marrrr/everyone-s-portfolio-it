@@ -17,14 +17,14 @@ export function generateSampleData() {
     'Bootstrap',
     'iOS(Objective-C)',
     'Android(Java)',
-    'Unity(JS, C#)'
+    'Unity(JS, C#)',
   ]
   for (let i = 0; i < 20; i++) {
     samples.push({
       url,
       imageUrl,
       title: 'Sample ' + String(i),
-      skills: tagSample
+      skills: tagSample,
     })
   }
 

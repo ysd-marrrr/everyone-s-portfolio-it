@@ -1,7 +1,7 @@
 import PortfolioImage from '@/components/atoms/Image/PortfolioImage.vue'
 
 export default {
-  title: '/atoms/Image/PortfolioImage',
+  title: 'atoms/Image/PortfolioImage',
 }
 
 export const hasImage = () => ({

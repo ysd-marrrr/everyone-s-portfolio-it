@@ -9,6 +9,7 @@ module.exports = {
     'prettier',
     'plugin:prettier/recommended',
     'plugin:nuxt/recommended',
+    'plugin:storybook/recommended',
   ],
   plugins: ['prettier'],
   // add your custom rules here

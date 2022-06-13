@@ -3,11 +3,11 @@ import PortfolioCardList from '@/components/organisms/Section/PortfolioCardList.
 import SiteFooter from '@/components/organisms/Section/SiteFooter.vue'
 
 // サンプルデータの読み込み
-import { generateSampleData } from '@/.storybook/sampleData.js'
+import { generateSampleData } from '@/storybook-data/sampleData.js'
 const sampleData = generateSampleData()
 
 export default {
-  title: '/organisms/Section',
+  title: 'organisms/Section',
 }
 
 export const portfolioCardList = () => ({
