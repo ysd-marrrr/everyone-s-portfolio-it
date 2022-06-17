@@ -50,6 +50,31 @@ $ docker-compose exec backend composer install
 $ cp ./backend/src/.env.local ./backend/src/.env
 $ docker-compose exec backend php artisan migrate
 
+# setup for authentication
+$ cp ./backend/src/.env.local  ./backend/src/.env
+$ docker-compose exec backend php artisan key:generate
+$ docker-compose exec backend php artisan passport:install
+$ docker-compose exec backend php artisan passport:client --client
+
 # start the dev server
 $ docker-compose exec backend php artisan serve --host 0.0.0.0
+
+# create user for authentication
+POST http://127.0.0.1:8000/oauth/token
+Content-Type: x-www-form-urlencoded
+
+{
+    
+    "grant_type": "client_credentials",
+    "client_id": "4",
+    "client_secret": "5VTuDW0CESesZobxJoPDlQQ0tb1DVkbC2t3EKXFL",
+    "scope": ""
+}
+
+# use this response `access_token` as Bearer token
+POST http://127.0.0.1:8000/api/portfolios/
+Accept: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1Q
+
+
 ```
