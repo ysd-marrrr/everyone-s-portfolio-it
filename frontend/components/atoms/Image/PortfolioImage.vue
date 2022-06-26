@@ -16,17 +16,17 @@ export default {
   props: {
     imageUrlProp: {
       type: String,
-      default: ''
-    }
+      default: '',
+    },
   },
   computed: {
     portfolioImageStyle() {
       return {
         '--portfolio-image-url':
-          'url("' + this.imageUrlProp + '") 0 0 no-repeat'
+          'url("' + this.imageUrlProp + '") 0 0 no-repeat',
       }
-    }
-  }
+    },
+  },
 }
 </script>
 
@@ -39,10 +39,10 @@ export default {
   height: auto;
   text-align: center;
 
-  &:before {
-    content: '';
+  &::before {
     display: block;
     padding-top: 100%;
+    content: '';
   }
 
   .inner {
@@ -56,7 +56,6 @@ export default {
   .has-image {
     .inner {
       background: var(--portfolio-image-url);
-
       background-position: center center;
       background-size: cover;
     }
@@ -68,14 +67,13 @@ export default {
     }
 
     .no-image-message {
-      font-family: 'Comfortaa', cursive;
-      font-size: 250%;
-
       position: absolute;
       top: 50%;
       left: 50%;
+      font-family: Comfortaa, cursive;
+      font-size: 250%;
       transform: translateY(-50%) translateX(-50%);
-      -webkit-transform: translateY(-50%) translateX(-50%);
+      transform: translateY(-50%) translateX(-50%);
     }
   }
 }
@@ -95,6 +93,7 @@ export default {
 @media screen and (max-width: 768px) {
   .portfolio-image-wrapper {
     width: 100%;
+
     .inner {
       left: 0;
     }

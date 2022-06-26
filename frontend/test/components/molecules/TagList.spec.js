@@ -3,7 +3,7 @@ import TagList from '@/components/molecules/TagList/TagList.vue'
 
 describe('TagList', () => {
   const props = {
-    tagListProp: ['Go', 'Apache Spark', 'Twitter API', 'ShellScript', 'Flask']
+    tagListProp: ['Go', 'Apache Spark', 'Twitter API', 'ShellScript', 'Flask'],
   }
 
   it('タグリストのpropsがセットされているか確認', () => {

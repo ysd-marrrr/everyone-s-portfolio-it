@@ -15,22 +15,22 @@ const tagSample = [
   'Bootstrap',
   'iOS(Objective-C)',
   'Android(Java)',
-  'Unity(JS, C#)'
+  'Unity(JS, C#)',
 ]
 
 export default {
-  title: 'molecules/Card/PortfolioCard'
+  title: 'molecules/Card/PortfolioCard',
 }
 
 export const hasImage = () => ({
   components: { PortfolioCard },
   template:
-    '<portfolio-card :image-url-prop="\'https://placebear.com/640/480\'" />'
+    '<portfolio-card :image-url-prop="\'https://placebear.com/640/480\'" />',
 })
 
 export const noImage = () => ({
   components: { PortfolioCard },
-  template: '<portfolio-card />'
+  template: '<portfolio-card />',
 })
 
 export const hasLongItem = () => ({
@@ -40,5 +40,5 @@ export const hasLongItem = () => ({
     <portfolio-card :image-url-prop="'https://placebear.com/640/480'" :skill-list-prop="tagSample">
       <template v-slot:title>Super Long Lorem Ipsum 2 Prime Max</template>
     </portfolio-card>
-    `
+    `,
 })

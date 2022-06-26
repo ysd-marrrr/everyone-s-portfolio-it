@@ -10,29 +10,29 @@
 import Tag from '@/components/atoms/Tag/Tag.vue'
 export default {
   components: {
-    Tag
+    Tag,
   },
   props: {
     tagListProp: {
       type: Array,
       default() {
         return []
-      }
-    }
+      },
+    },
   },
   computed: {
     tagList() {
       return this.tagListProp
-    }
-  }
+    },
+  },
 }
 </script>
 
 <style lang="scss" scoped>
 // タグ用共通スタイル
 ul.tags {
-  list-style-type: none;
-  margin: 0;
   padding: 0;
+  margin: 0;
+  list-style-type: none;
 }
 </style>

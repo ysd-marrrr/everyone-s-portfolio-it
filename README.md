@@ -31,6 +31,9 @@ $ yarn start
 # generate static project
 $ yarn generate
 
+# open Storybook for develop
+$ yarn nuxt storybook
+
 # Unit test with Jest
 $ yarn test
 ```

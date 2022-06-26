@@ -20,10 +20,10 @@ module.exports = {
         'Yu Gothic',
         'ＭＳ Ｐゴシック',
         'MS PGothic',
-        'sans-serif'
-      ]
-    }
+        'sans-serif',
+      ],
+    },
   },
   variants: {},
-  plugins: []
+  plugins: [],
 }

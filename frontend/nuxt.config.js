@@ -11,11 +11,11 @@ export default {
       {
         hid: 'description',
         name: 'description',
-        content: process.env.npm_package_description || ''
-      }
+        content: process.env.npm_package_description || '',
+      },
     ],
     script: [{ src: 'https://use.typekit.net/qxu3zoz.js' }],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
+    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
   /*
    ** Customize the progress-bar color
@@ -37,21 +37,22 @@ export default {
     // Doc: https://github.com/nuxt-community/stylelint-module
     '@nuxtjs/stylelint-module',
     // Doc: https://github.com/nuxt-community/nuxt-tailwindcss
-    '@nuxtjs/tailwindcss'
+    '@nuxtjs/tailwindcss',
+    '@nuxt/postcss8',
   ],
   /*
    ** Nuxt.js modules
    */
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
-    '@nuxtjs/axios'
+    '@nuxtjs/axios',
   ],
   /*
    ** Axios module configuration
    ** See https://axios.nuxtjs.org/options
    */
   axios: {
-    baseURL: process.env.BASE_URL || 'http://127.0.0.1:8000/api/'
+    baseURL: process.env.BASE_URL || 'http://127.0.0.1:8000/api/',
   },
   /*
    ** Build configuration
@@ -61,5 +62,8 @@ export default {
      ** You can extend webpack config here
      */
     // extend(config, ctx) {}
-  }
+  },
+
+  // fix "TypeError: Cannot read property 'push' of undefined" with Tailwind CSS
+  devServerHandlers: [],
 }

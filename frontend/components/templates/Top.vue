@@ -23,23 +23,23 @@ export default Vue.extend({
     HeaderNav,
     PortfolioCardList,
     SiteFooter,
-    Pagination
+    Pagination,
   },
   props: {
     portfolioListProp: {
       type: Array,
       default() {
         return []
-      }
+      },
     },
     currentPageProp: {
       type: Number,
-      default: 1
+      default: 1,
     },
     totalPageProp: {
       type: Number,
-      default: 1
-    }
+      default: 1,
+    },
   },
   computed: {
     portfolioList() {
@@ -50,23 +50,22 @@ export default Vue.extend({
     },
     totalPage() {
       return this.totalPageProp
-    }
+    },
   },
   methods: {
     onChangePage(newPage) {
       this.$emit('changePage', newPage)
-    }
-  }
+    },
+  },
 })
 </script>
 
 <style lang="scss" scoped>
 .top-wrapper {
-  width: 100vw;
-
-  background: rgb(242, 224, 187);
-  padding: 1rem 0 0 0;
   display: flex;
   flex-direction: column;
+  width: 100vw;
+  padding: 1rem 0 0;
+  background: rgb(242, 224, 187);
 }
 </style>

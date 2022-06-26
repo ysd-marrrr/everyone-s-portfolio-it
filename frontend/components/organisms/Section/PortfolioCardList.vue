@@ -7,7 +7,7 @@
       :image-url-prop="item.imageUrl"
       :skill-list-prop="item.skills"
     >
-      <template v-slot:title>
+      <template #title>
         {{ item.title }}
       </template>
     </portfolio-card>
@@ -20,28 +20,28 @@ import PortfolioCard from '@/components/molecules/Card/PortfolioCard.vue'
 
 export default Vue.extend({
   components: {
-    PortfolioCard
+    PortfolioCard,
   },
   props: {
     portfolioListProp: {
       type: Array,
       default() {
         return []
-      }
-    }
+      },
+    },
   },
   computed: {
     portfolioList() {
       return this.portfolioListProp
-    }
-  }
+    },
+  },
 })
 </script>
 
 <style lang="scss" scoped>
 #portfolio-list {
-  padding: 2.5rem 0 10rem 0;
-  margin: auto auto;
+  padding: 2.5rem 0 10rem;
+  margin: auto;
   background: rgb(242, 224, 187);
 }
 
