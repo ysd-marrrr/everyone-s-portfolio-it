@@ -11,7 +11,7 @@ describe('PortfolioImage', () => {
 
   it('画像なし時はNOW PRINTING(.no-image-message)が表示されているか確認', () => {
     const wrapper = mount(PortfolioImage, { propsData: { ...propsNoImage } })
-    expect(wrapper.contains('.no-image-message')).toBe(true)
+    expect(wrapper.findComponent('.no-image-message').exists()).toBe(true)
   })
 
   it('画像URLのpropsがセットされているか確認', () => {
